@@ -63,5 +63,15 @@
     "id": 17,
     "name": "Alicia Gonzalez",
     "career": "Licenciatura en Nutrición"
+  },
+  {
+    "id": 18,
+    "name": "Alfonsina Vivas",
+    "career": "Licenciatura en Nutrición"
+  },
+  {
+    "id": 19,
+    "name": "ffffff",
+    "career": "Licenciatura en Diseño Gráfico"
   }
 ]

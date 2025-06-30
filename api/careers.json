@@ -178,5 +178,29 @@
     "name": "ingeniero Agrónomo",
     "description": "mejora la producción agrícola",
     "categoryId": 7
+  },
+  {
+    "id": 31,
+    "name": "abogado",
+    "description": "defensa de derechos",
+    "categoryId": 3
+  },
+  {
+    "id": 32,
+    "name": "dddddd",
+    "description": "ddddd",
+    "categoryId": 2
+  },
+  {
+    "id": 33,
+    "name": "eeeeddd",
+    "description": "dddf",
+    "categoryId": 4
+  },
+  {
+    "id": 34,
+    "name": "fffffff",
+    "description": "ff",
+    "categoryId": 6
   }
 ]
