@@ -17,6 +17,7 @@ const headers = {
  * @param {string} title - El título del mensaje.
  * @param {string} message - El cuerpo del mensaje.
  */
+// Función para mostrar mensajes de éxito al usuario usando SweetAlert2
 function showSuccess(title, message) {
   Swal.fire({
     icon: "success",
@@ -36,6 +37,7 @@ function showSuccess(title, message) {
  * @param {string} title - El título del mensaje.
  * @param {string} message - El cuerpo del mensaje.
  */
+// Función para mostrar mensajes de error al usuario usando SweetAlert2
 function showError(title, message) {
   Swal.fire({
     icon: "error",
@@ -56,6 +58,7 @@ function showError(title, message) {
  * @param {string} message - El cuerpo del mensaje.
  * @returns {Promise<boolean>} - Resuelve a true si el usuario confirma, false en caso contrario.
  */
+// Función para mostrar un cuadro de confirmación y devolver la respuesta del usuario
 async function showConfirmation(title, message) {
   const result = await Swal.fire({
     title: title,
@@ -80,6 +83,7 @@ async function showConfirmation(title, message) {
 /**
  * Carga las carreras disponibles en el select de registro de estudiantes.
  */
+// Función que obtiene las carreras desde la API y las carga en el select del formulario de estudiantes
 async function loadCareersForStudentRegistration() {
   const selectElement = document.getElementById('studentCareerSelect');
   if (!selectElement) {
@@ -114,6 +118,7 @@ async function loadCareersForStudentRegistration() {
 /**
  * Registra un nuevo estudiante enviando los datos a la API.
  */
+// Función que envía los datos del formulario para registrar un nuevo estudiante en la API
 async function registerStudent() {
   const studentNameInput = document.getElementById('studentName');
   const studentCareerSelect = document.getElementById('studentCareerSelect');
@@ -151,6 +156,7 @@ async function registerStudent() {
 /**
  * Consulta un estudiante por su ID y muestra el resultado.
  */
+// Función que busca un estudiante por su ID y muestra la información obtenida de la API
 async function getStudentById() {
   const studentIdInput = document.getElementById('getStudentId');
   const resultDiv = document.getElementById('getStudentResult');
@@ -188,6 +194,7 @@ async function getStudentById() {
 /**
  * Elimina un estudiante por su ID.
  */
+// Función que elimina un estudiante de la base de datos usando su ID
 async function deleteStudent() {
   const studentIdInput = document.getElementById('deleteStudentId');
   const resultDiv = document.getElementById('deleteStudentResult');
@@ -233,6 +240,7 @@ async function deleteStudent() {
 /**
  * Obtiene todos los estudiantes de la API y los muestra en el DOM.
  */
+// Función que obtiene y muestra la lista completa de estudiantes desde la API
 async function getAllStudents() {
   const accordionContainer = document.getElementById('studentsAccordion');
   if (!accordionContainer) {
@@ -290,6 +298,7 @@ async function getAllStudents() {
 /**
  * Carga las categorías disponibles en el select de registro de carreras.
  */
+// Función que obtiene las categorías desde la API y las carga en el select del formulario de carreras
 async function loadCategoriesForCareerRegistration() {
   const selectElement = document.getElementById('careerCategorySelect');
   if (!selectElement) {
@@ -324,6 +333,7 @@ async function loadCategoriesForCareerRegistration() {
 /**
  * Registra una nueva carrera.
  */
+// Función que envía los datos del formulario para registrar una nueva carrera en la API
 async function registerCareer() {
   const careerNameInput = document.getElementById('careerName');
   const careerDescriptionInput = document.getElementById('careerDescription');
@@ -364,6 +374,7 @@ async function registerCareer() {
 /**
  * Consulta una carrera por su ID.
  */
+// Función que busca una carrera por su ID y muestra la información obtenida de la API
 async function getCareerById() {
   const careerIdInput = document.getElementById('getCareerId');
   const resultDiv = document.getElementById('getCareerResult');
@@ -402,6 +413,7 @@ async function getCareerById() {
 /**
  * Elimina una carrera por su ID.
  */
+// Función que elimina una carrera de la base de datos usando su ID
 async function deleteCareer() {
   const careerIdInput = document.getElementById('deleteCareerId');
   const resultDiv = document.getElementById('deleteCareerResult');
@@ -447,6 +459,7 @@ async function deleteCareer() {
 /**
  * Obtiene todas las carreras de la API y las muestra en el DOM.
  */
+// Función que obtiene y muestra la lista completa de carreras desde la API
 async function getAllCareers() {
   const careersListDiv = document.getElementById('allCareersResult');
   if (!careersListDiv) {
@@ -482,6 +495,7 @@ async function getAllCareers() {
 /**
  * Inserta un conjunto predefinido de carreras.
  */
+// Función que inserta varias carreras predefinidas en la base de datos (seed)
 async function seedCareers() {
   const confirmation = await showConfirmation(
     "Insertar Oferta Académica",
@@ -547,6 +561,7 @@ async function seedCareers() {
 /**
  * Registra una nueva categoría.
  */
+// Función que envía los datos del formulario para registrar una nueva categoría en la API
 async function registerCategory() {
   const categoryNameInput = document.getElementById('categoryName');
   const name = categoryNameInput.value.trim();
@@ -580,6 +595,7 @@ async function registerCategory() {
 /**
  * Consulta una categoría por su ID.
  */
+// Función que busca una categoría por su ID y muestra la información obtenida de la API
 async function getCategoryById() {
   const categoryIdInput = document.getElementById('getCategoryId');
   const resultDiv = document.getElementById('getCategoryResult');
@@ -616,6 +632,7 @@ async function getCategoryById() {
 /**
  * Elimina una categoría por su ID.
  */
+// Función que elimina una categoría de la base de datos usando su ID
 async function deleteCategory() {
   const categoryIdInput = document.getElementById('deleteCategoryId');
   const resultDiv = document.getElementById('deleteCategoryResult');
@@ -661,6 +678,7 @@ async function deleteCategory() {
 /**
  * Obtiene todas las categorías de la API y las muestra en el DOM.
  */
+// Función que obtiene y muestra la lista completa de categorías desde la API
 async function getAllCategories() {
   const categoriesListDiv = document.getElementById('allCategoriesResult');
   if (!categoriesListDiv) {
@@ -695,6 +713,8 @@ async function getAllCategories() {
 
 
 // ==================== Inicialización al Cargar el DOM ==================== //
+
+// Evento que inicializa la carga de datos y selects según la página actual
 
 document.addEventListener('DOMContentLoaded', () => {
   // Inicialización específica para cada página
