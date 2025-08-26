@@ -1,198 +1,68 @@
-# Student API Documentation
+📚 Registro Académico — CodeIgniter 4 + MySQL
+Proyecto académico de la Tecnicatura en Ciencia de Datos e Inteligencia Artificial (ISFDyT N°57).
+El objetivo es migrar una aplicación front-end a un stack CodeIgniter 4 + MySQL, aplicando prácticas ágiles, control de versiones con GitHub y documentación profesional.
 
----
+🚀 Objetivo del proyecto
+Implementar un CRUD completo de Carreras, Alumnos, Cursos e Inscripciones.
+Integrar la base de datos universidad en MySQL.
+Garantizar seguridad básica (CSRF, validaciones, sesiones).
+Aplicar Scrum/Kanban en la organización del equipo.
+Entregar un MVP funcional con demo al cliente (docente).
+👥 Equipo
+Project Manager (PM): Marcelo Chalengo
+QA/Tester: Pamela Quiroga
+Frontend Developer: Thiago
+Backend Developers: Gladys González & Juan Martín
+🛠️ Tecnologías
+Backend: PHP 8.x — CodeIgniter 4 (MVC)
+Base de datos: MySQL / MariaDB
+Frontend: HTML, CSS, JS (migrado a vistas CI4)
+Control de versiones: GitHub (Issues, Projects, CI/CD con GitHub Actions)
+Testing: PHPUnit + QA manual
+📂 Estructura del repositorio
+Code
+/
+├── api/                 # Lógica de la API y backend (CodeIgniter 4)
+├── front/               # Vistas y archivos del frontend (HTML, CSS, JS)
+├── .vs/                 # Archivos de configuración de Visual Studio (opcional)
+├── CODE_OF_CONDUCT.md   # Código de conducta del proyecto
+├── LICENSE              # Licencia del repositorio
+├── readme.md            # Documentación principal del proyecto
+├── readmetp1            # Documentación adicional de la práctica profesional
+⚙️ Instalación y ejecución
+Clona el repositorio
 
-## 📍 Introduction
+bash
+git clone https://github.com/PQuiroga93/registroalumnos_Gladys.git
+Instala dependencias
 
-This is an educational REST API for managing a simple database of students. It allows you to:
+Asegúrate de tener PHP 8.x y Composer instalados.
+Instala dependencias de CodeIgniter:
+bash
+composer install
+Configura la base de datos
 
-- Register new students.
-- Query students by ID.
-- Query students by career.
-- Delete students.
+Crea una base de datos universidad en MySQL.
+Actualiza el archivo .env con tus credenciales de conexión.
+Migraciones y seeders
 
-Student data is persisted using a local JSON file (`students.json`) to simulate a database.
+Ejecuta las migraciones para crear las tablas necesarias:
+bash
+php spark migrate
+(Opcional) Ejecuta seeders para datos iniciales:
+bash
+php spark db:seed
+Ejecuta el servidor
 
----
+bash
+php spark serve
+Accede a la app en http://localhost:8080
 
-## 🔍 Base URL
+📝 Consignas del trabajo
+Este proyecto responde a las consignas de la materia Prácticas Profesionales del ISFDyT N°57.
+Por requerimiento institucional, el documento original no se publica aquí.
+Para más información, consultar la plataforma institucional o contactar al docente responsable.
 
-```bash
-http://localhost:5001/api/students
-```
-
-The server must be running on port `5001`.
-
----
-
-## 🔒 Authentication
-
-All requests must include an **API Key** in the Authorization header:
-
-```text
-Authorization: Bearer 12345ABCDEF
-```
-
-If the key is missing or incorrect, the server will respond with `401 Unauthorized`.
-
----
-
-## 🔍 Endpoints
-
-### 1. Register New Student
-
-- **URL**: `/api/students`
-- **Method**: `POST`
-- **Headers**:
-  - `Content-Type: application/json`
-  - `Authorization: Bearer 12345ABCDEF`
-- **Body**:
-
-```json
-{
-  "name": "John Doe",
-  "career": "Engineering"
-}
-```
-
-- **Success Response**:
-  - **Code**: `201 Created`
-  - **Content**:
-
-```json
-{
-  "message": "Student registered successfully.",
-  "student": {
-    "id": 51,
-    "name": "John Doe",
-    "career": "Engineering"
-  }
-}
-```
-
-### 2. Get Student by ID
-
-- **URL**: `/api/students/:id`
-- **Method**: `GET`
-- **Headers**:
-  - `Authorization: Bearer 12345ABCDEF`
-
-- **Success Response**:
-  - **Code**: `200 OK`
-  - **Content**:
-
-```json
-{
-  "id": 1,
-  "name": "Alice Johnson",
-  "career": "Engineering"
-}
-```
-
-- **Error Response**:
-  - **Code**: `404 Not Found`
-
-```json
-{
-  "error": "Student not found."
-}
-```
-
-### 3. Get Students by Career
-
-- **URL**: `/api/students?career=CareerName`
-- **Method**: `GET`
-- **Headers**:
-  - `Authorization: Bearer 12345ABCDEF`
-
-- **Example**:
-
-```bash
-GET /api/students?career=Engineering
-```
-
-- **Success Response**:
-  - **Code**: `200 OK`
-  - **Content** (array of matching students):
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Alice Johnson",
-    "career": "Engineering"
-  },
-  {
-    "id": 6,
-    "name": "Fiona Miller",
-    "career": "Engineering"
-  }
-]
-```
-
-- **Error Response**:
-  - **Code**: `400 Bad Request` if `career` is missing.
-
-```json
-{
-  "error": "Career filter is required."
-}
-```
-
-### 4. Delete Student by ID
-
-- **URL**: `/api/students/:id`
-- **Method**: `DELETE`
-- **Headers**:
-  - `Authorization: Bearer 12345ABCDEF`
-
-- **Success Response**:
-  - **Code**: `200 OK`
-
-```json
-{
-  "message": "Student deleted successfully."
-}
-```
-
-- **Error Response**:
-  - **Code**: `404 Not Found`
-
-```json
-{
-  "error": "Student not found for deletion."
-}
-```
-
----
-
-## 💡 Notes
-
-- All responses are in JSON format.
-- If you modify the students (add/delete), changes are saved automatically to `students.json`.
-- Restarting the server preserves the updated list thanks to JSON persistence.
-
----
-
-## 💼 Example Authorization Header
-
-```text
-Authorization: Bearer 12345ABCDEF
-```
-
-This must be included in every request.
-
----
-
-# 📖 Educational Objectives
-
-- Practice sending requests to a REST API.
-- Learn about HTTP methods: `GET`, `POST`, `DELETE`.
-- Understand JSON data format.
-- Experience basic server-side persistence.
-- Manage authentication with API keys.
-
----
-
-**Happy coding! 🚀**
-
+📢 Contacto
+Para dudas o sugerencias, crear un Issue en el repositorio.
+Consultas académicas: ISFDyT N°57.
