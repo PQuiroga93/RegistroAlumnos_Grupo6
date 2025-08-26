@@ -9,10 +9,10 @@ Garantizar seguridad básica (CSRF, validaciones, sesiones).
 Aplicar Scrum/Kanban en la organización del equipo.
 Entregar un MVP funcional con demo al cliente (docente).
 👥 Equipo
-Project Manager (PM): Marcelo Chalengo
+Project Manager (PM): Marcelo Pérez
 QA/Tester: Pamela Quiroga
 Frontend Developer: Thiago
-Backend Developers: Gladys González & Juan Martín
+Backend Developers: Gladys González & Juan Lacoumette
 🛠️ Tecnologías
 Backend: PHP 8.x — CodeIgniter 4 (MVC)
 Base de datos: MySQL / MariaDB
