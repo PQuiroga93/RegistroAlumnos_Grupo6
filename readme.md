@@ -11,7 +11,7 @@ Entregar un MVP funcional con demo al cliente (docente).
 👥 Equipo
 Project Manager (PM): Marcelo Pérez
 QA/Tester: Pamela Quiroga
-Frontend Developer: Thiago
+Frontend Developer: Tiago Maidana
 Backend Developers: Gladys González & Juan Lacoumette
 🛠️ Tecnologías
 Backend: PHP 8.x — CodeIgniter 4 (MVC)
